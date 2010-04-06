@@ -7,7 +7,8 @@ Summary:        LV2 plugin host
 Version:        %{version} 
 Release:        %{release}
 
-Source:         http://download.gna.org/%name/%name-%version.tar.bz2
+Source0:        http://download.gna.org/%name/%name-%version.tar.bz2
+Source1:        zynjacku_logo.xpm
 URL:            http://home.gna.org/zynjacku/
 License:        GPLv2
 Group:          Sound
@@ -43,6 +44,34 @@ lv2rack is a host for LV2 effect plugins.
 %install
 rm -rf %{buildroot}
 %makeinstall
+mkdir -p %{buildroot}%{_datadir}/pixmaps/
+cp %{SOURCE1} %{buildroot}%{_datadir}/pixmaps/
+mkdir -p %{buildroot}%{_datadir}/applications
+
+
+#make desktop file for zynjacku
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
+[Desktop Entry]
+Name=Zynjacku
+Comment=LV2 synth plugin host
+Exec=%{_bindir}/%{name}
+Icon=%{_datadir}/pixmaps/zynjacku_logo.xpm
+Terminal=false
+Type=Application
+Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
+EOF
+
+#make desktop file for lv2rack
+cat > %{buildroot}%{_datadir}/applications/mandriva-lv2rack.desktop <<EOF
+[Desktop Entry]
+Name=LV2Rack
+Comment=LV2 effects plugin host
+Exec=%{_bindir}/lv2rack
+Icon=%{_datadir}/pixmaps/zynjacku_logo.xpm
+Terminal=false
+Type=Application
+Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
+EOF
 
 %clean
 rm -rf %{buildroot}
@@ -57,3 +86,6 @@ rm -rf %{buildroot}
 /usr/lib/python2.6/site-packages/zynworld/*
 %dir %{_datadir}/%name
 %{_datadir}/%name/*
+%{_datadir}/pixmaps/%{name}_logo.xpm
+%{_datadir}/applications/mandriva-%{name}.desktop
+%{_datadir}/applications/mandriva-lv2rack.desktop
