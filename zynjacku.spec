@@ -1,6 +1,6 @@
 %define name    zynjacku
 %define version 5.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:           %{name} 
 Summary:        LV2 plugin host
