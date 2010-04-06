@@ -1,6 +1,6 @@
 %define name    zynjacku
 %define version 5.2
-%define release %mkrel 2
+%define release %mkrel 3
 
 Name:           %{name} 
 Summary:        LV2 plugin host
@@ -17,7 +17,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  libjack-devel
 BuildRequires:  gtk2-devel
 BuildRequires:  libglade2-devel
-BuildRequires:  dbus-glib-devel
 BuildRequires:  slv2-devel
 BuildRequires:  pygtk2.0-devel
 
