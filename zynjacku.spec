@@ -54,7 +54,6 @@ rm -rf %{buildroot}
 %{_bindir}/%name
 %{_bindir}/zynspect
 %{_bindir}/lv2rack
-%dir %{_libdir}/python2.6/site-packages/zynworld
-%{_libdir}/python2.6/site-packages/zynworld/*
+/usr/lib/python2.6/site-packages/zynworld/*
 %dir %{_datadir}/%name
 %{_datadir}/%name/*
