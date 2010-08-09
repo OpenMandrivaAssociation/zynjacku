@@ -1,6 +1,6 @@
 %define name    zynjacku
 %define version 5.2
-%define release %mkrel 3
+%define release %mkrel 4
 
 Name:           %{name} 
 Summary:        LV2 plugin host
@@ -9,6 +9,9 @@ Release:        %{release}
 
 Source0:        http://download.gna.org/%name/%name-%version.tar.bz2
 Source1:        zynjacku_logo.xpm
+# (Fedora)Correct lv2 path on 64bit systems:
+# https://gna.org/bugs/?13687
+Patch0:         zynjacku-lv2path.patch
 URL:            http://home.gna.org/zynjacku/
 License:        GPLv2
 Group:          Sound
@@ -35,9 +38,10 @@ lv2rack is a host for LV2 effect plugins.
 
 %prep
 %setup -q
+%patch0 -p1 -b .lv2path
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
@@ -72,12 +76,15 @@ Type=Application
 Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
 EOF
 
+# don't ship .la
+find %{buildroot} -name '*.la' | xargs rm -f
+
 %clean
 rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
-%doc README AUTHORS
+%doc README AUTHORS NEWS
 
 %{_bindir}/%name
 %{_bindir}/zynspect
