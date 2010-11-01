@@ -1,6 +1,6 @@
 %define name    zynjacku
 %define version 5.2
-%define release %mkrel 4
+%define release %mkrel 5
 
 Name:           %{name} 
 Summary:        LV2 plugin host
@@ -89,7 +89,7 @@ rm -rf %{buildroot}
 %{_bindir}/%name
 %{_bindir}/zynspect
 %{_bindir}/lv2rack
-/usr/lib/python2.6/site-packages/zynworld/*
+%{python_sitelib}/zynworld/*
 %dir %{_datadir}/%name
 %{_datadir}/%name/*
 %{_datadir}/pixmaps/%{name}_logo.xpm
