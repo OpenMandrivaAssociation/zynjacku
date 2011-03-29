@@ -1,10 +1,10 @@
 %define name    zynjacku
-%define version 5.2
-%define release %mkrel 5
+%define version 6
+%define release %mkrel 1
 
-Name:           %{name} 
+Name:           %{name}
 Summary:        LV2 plugin host
-Version:        %{version} 
+Version:        %{version}
 Release:        %{release}
 
 Source0:        http://download.gna.org/%name/%name-%version.tar.bz2
@@ -15,7 +15,7 @@ Patch0:         zynjacku-lv2path.patch
 URL:            http://home.gna.org/zynjacku/
 License:        GPLv2
 Group:          Sound
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot 
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:  libjack-devel
 BuildRequires:  gtk2-devel
@@ -27,12 +27,12 @@ Requires:       jackit
 Requires:       pygtk2.0
 
 %description
-zynjacku is JACK based, GTK (2.x) host for LV2 synths. It has one JACK 
-MIDI input port (routed to all hosted synths) and one (two for stereo 
-synths) JACK audio output port per plugin. Such design provides 
+zynjacku is JACK based, GTK (2.x) host for LV2 synths. It has one JACK
+MIDI input port (routed to all hosted synths) and one (two for stereo
+synths) JACK audio output port per plugin. Such design provides
 multi-timbral sound by running several synth plugins.
-zynjacku is a nunchaku weapon for JACK audio synthesis. 
-You have solid parts for synthesis itself and you have flexible part that 
+zynjacku is a nunchaku weapon for JACK audio synthesis.
+You have solid parts for synthesis itself and you have flexible part that
 allows synthesis to suit your needs.
 lv2rack is a host for LV2 effect plugins.
 
@@ -82,7 +82,7 @@ find %{buildroot} -name '*.la' | xargs rm -f
 %clean
 rm -rf %{buildroot}
 
-%files 
+%files
 %defattr(-,root,root)
 %doc README AUTHORS NEWS
 
