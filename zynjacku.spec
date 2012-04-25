@@ -22,11 +22,12 @@ BuildRequires:  gtk2-devel
 BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(libglade-2.0)
 BuildRequires:  slv2-devel
+BuildRequires:  lv2-devel
 BuildRequires:  pygtk2.0-devel
 
 Requires:       jackit
 Requires:       pygtk2.0
-Provides:		lv2rack
+Provides:       lv2rack
 
 %description
 zynjacku is JACK based, GTK (2.x) host for LV2 synths. It has one JACK
