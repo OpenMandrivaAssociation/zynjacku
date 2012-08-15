@@ -1,6 +1,6 @@
 %define name    zynjacku
 %define version 6
-%define release 2
+%define release 3
 
 Name:           %{name}
 Summary:        LV2 plugin host
@@ -8,7 +8,7 @@ Version:        %{version}
 Release:        %{release}
 
 Source0:        http://download.gna.org/%name/%name-%version.tar.bz2
-Source1:        zynjacku_logo.xpm
+Source1:        zynjacku_logo.png
 # (Fedora)Correct lv2 path on 64bit systems:
 # https://gna.org/bugs/?13687
 Patch0:         zynjacku-lv2path.patch
@@ -61,7 +61,7 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 Name=Zynjacku
 Comment=LV2 synth plugin host
 Exec=%{_bindir}/%{name}
-Icon=%{_datadir}/pixmaps/zynjacku_logo.xpm
+Icon=%{_datadir}/pixmaps/zynjacku_logo.png
 Terminal=false
 Type=Application
 Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
@@ -73,14 +73,11 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-lv2rack.desktop <<EOF
 Name=LV2Rack
 Comment=LV2 effects plugin host
 Exec=%{_bindir}/lv2rack
-Icon=%{_datadir}/pixmaps/zynjacku_logo.xpm
+Icon=%{_datadir}/pixmaps/zynjacku_logo.png
 Terminal=false
 Type=Application
 Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
 EOF
-
-# don't ship .la
-find %{buildroot} -name '*.la' | xargs rm -f
 
 %clean
 rm -rf %{buildroot}
@@ -95,6 +92,6 @@ rm -rf %{buildroot}
 %{python_sitelib}/zynworld/*
 %dir %{_datadir}/%name
 %{_datadir}/%name/*
-%{_datadir}/pixmaps/%{name}_logo.xpm
+%{_datadir}/pixmaps/%{name}_logo.png
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_datadir}/applications/mandriva-lv2rack.desktop
