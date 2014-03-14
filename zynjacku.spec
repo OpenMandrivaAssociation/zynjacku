@@ -18,7 +18,7 @@ Group:          Sound
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:  jackit-devel
-BuildRequires:  gtk2-devel
+BuildRequires:  gtk+2.0-devel
 BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(libglade-2.0)
 BuildRequires:  slv2-devel
