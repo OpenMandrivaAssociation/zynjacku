@@ -1,6 +1,7 @@
 %define name    zynjacku
 %define version 6
 %define release 2
+%define _disable_ld_no_undefined 1
 
 Name:           %{name}
 Summary:        LV2 plugin host
