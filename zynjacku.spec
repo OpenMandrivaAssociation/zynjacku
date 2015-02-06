@@ -1,6 +1,6 @@
 %define name    zynjacku
 %define version 6
-%define release 2
+%define release 3
 %define _disable_ld_no_undefined 1
 
 Name:           %{name}
