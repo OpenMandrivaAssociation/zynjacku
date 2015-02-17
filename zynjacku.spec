@@ -25,6 +25,8 @@ BuildRequires:  pkgconfig(libglade-2.0)
 BuildRequires:  slv2-devel
 BuildRequires:  lv2-devel
 BuildRequires:  pygtk2.0-devel
+BuildRequires:  python-devel
+BuildRequires:  python-setuptools
 
 Requires:       jackit
 Requires:       pygtk2.0
