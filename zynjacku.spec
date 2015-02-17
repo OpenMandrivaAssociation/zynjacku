@@ -87,7 +87,7 @@ EOF
 
 # don't ship .la
 find %{buildroot} -name '*.la' | xargs rm -f
-chmod -x $RPM_BUILD_ROOT%{python_sitearch}/zynworld/*.py
+chmod -x $RPM_BUILD_ROOT%{python2_sitearch}/zynworld/*.py
 
 
 %files
@@ -96,7 +96,7 @@ chmod -x $RPM_BUILD_ROOT%{python_sitearch}/zynworld/*.py
 %{_bindir}/%name
 %{_bindir}/zynspect
 %{_bindir}/lv2rack
-%{python_sitelib}/zynworld/*
+%{python2_sitelib}/zynworld/*
 %dir %{_datadir}/%name
 %{_datadir}/%name/*
 %{_datadir}/pixmaps/%{name}_logo.xpm
