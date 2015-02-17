@@ -49,7 +49,8 @@ lv2rack is a host for LV2 effect plugins.
 sed -i '\|/usr/bin/env|d' zynworld/host.py
 
 %build
-export am_cv_python_pythondir=%{python_sitearch}
+ln -s %{_bindir}/python2 python
+export PATH=`pwd`:$PATH
 %configure2_5x --disable-static
 %make
 
