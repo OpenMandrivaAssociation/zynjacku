@@ -25,8 +25,8 @@ BuildRequires:  pkgconfig(libglade-2.0)
 BuildRequires:  slv2-devel
 BuildRequires:  lv2-devel
 BuildRequires:  pygtk2.0-devel
-BuildRequires:  python-devel
-BuildRequires:  python-setuptools
+BuildRequires:  python2-devel
+BuildRequires:  python2-setuptools
 
 Requires:       jackit
 Requires:       pygtk2.0
@@ -45,9 +45,11 @@ lv2rack is a host for LV2 effect plugins.
 %prep
 %setup -q
 %patch0 -p1 -b .lv2path
-find . -name "*.py" |xargs 2to3 -w
+#find . -name "*.py" |xargs 2to3 -w
+sed -i '\|/usr/bin/env|d' zynworld/host.py
 
 %build
+export am_cv_python_pythondir=%{python_sitearch}
 %configure2_5x --disable-static
 %make
 
@@ -84,6 +86,7 @@ EOF
 
 # don't ship .la
 find %{buildroot} -name '*.la' | xargs rm -f
+chmod -x $RPM_BUILD_ROOT%{python_sitearch}/zynworld/*.py
 
 
 %files
