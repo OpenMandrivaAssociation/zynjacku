@@ -13,7 +13,7 @@ Source1:        zynjacku_logo.xpm
 # (Fedora)Correct lv2 path on 64bit systems:
 # https://gna.org/bugs/?13687
 Patch0:         zynjacku-lv2path.patch
-URL:            http://home.gna.org/zynjacku/
+URL:            https://home.gna.org/zynjacku/
 License:        GPLv2
 Group:          Sound
 
